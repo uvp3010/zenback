@@ -19,7 +19,7 @@ def create_app():
     CORS(app, supports_credentials=True, resources={r"/*": {
         "origins": [
             "http://localhost:5173",
-            "https://zen-llmbxsl83-uvp3010s-projects.vercel.app"
+            "https://zenback-3.onrender.com"
         ]
     }})
 
