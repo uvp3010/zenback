@@ -20,7 +20,7 @@ sess = Session(app)
 CORS(app, supports_credentials=True, resources={r"/*": {
     "origins": [
         "http://localhost:5173",
-        "https://zenback-3.onrender.com"
+        "https://zen-opal.vercel.app"
     ]
 }})
 
