@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: flask-ml-app
+    env: python
+    buildCommand: ""
+    startCommand: gunicorn run:app
+    autoDeploy: true
+    envVars:
+      - key: FLASK_ENV
+        value: production
