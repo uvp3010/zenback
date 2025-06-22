@@ -104,6 +104,9 @@ def register():
     if User.query.filter_by(username=username).first():
         return jsonify({'message': 'Username already exists'}), 400
 
+    if User.query.filter_by(email=email).first():  # 👈 New check
+        return jsonify({'message': 'Email already registered'}), 400
+
     hashed_password = generate_password_hash(password)
     new_user = User(
         username=username,
@@ -115,6 +118,7 @@ def register():
     db.session.add(new_user)
     db.session.commit()
     return jsonify({'message': 'User registered successfully'}), 201
+
 
 @main.route('/login', methods=['POST'])
 def login():
