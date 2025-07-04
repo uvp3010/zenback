@@ -1,6 +1,10 @@
 import re
 from nltk.tokenize import word_tokenize
 from nltk.stem import PorterStemmer
+import nltk
+
+# Ensure NLTK can find the downloaded data on Render
+nltk.data.path.append("/opt/render/project/src/nltk_data")
 
 stemmer = PorterStemmer()
 
