@@ -13,7 +13,7 @@ from app import db, app
 from app.models import User, Appointment, Assessment, Task, TaskCompletion, Prediction
 from app.utils import preprocess_text, generate_response
 import os
-
+nltk.download('punkt')
 # Load Twilio configuration from app.config
 TWILIO_ACCOUNT_SID = app.config.get('TWILIO_ACCOUNT_SID')
 TWILIO_AUTH_TOKEN = app.config.get('TWILIO_AUTH_TOKEN')
