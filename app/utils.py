@@ -1,10 +1,16 @@
 import re
+import nltk
 from nltk.tokenize import word_tokenize
 from nltk.stem import PorterStemmer
-import nltk
+from nltk.tokenize import PunktSentenceTokenizer
 
-# Ensure NLTK can find the downloaded data on Render
+# Add the NLTK data path Render uses
 nltk.data.path.append("/opt/render/project/src/nltk_data")
+
+# Force correct tokenizer usage (patch buggy call)
+def fixed_get_punkt_tokenizer(lang):
+    return PunktSentenceTokenizer()
+nltk.tokenize._get_punkt_tokenizer = fixed_get_punkt_tokenizer
 
 stemmer = PorterStemmer()
 
